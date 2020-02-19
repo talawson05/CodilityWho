@@ -1,0 +1,3 @@
+selenium
+pytest
+chromedriver-py==80.0.3987.16

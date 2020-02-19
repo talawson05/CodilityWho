@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function populateValidationErrorAndDisplay(message)
+        {
+            var errorElement = document.getElementsByClassName('validation error')[0];
+            errorElement.style.display = "block";
+            var newcontent = document.createElement('div');
+            newcontent.innerHTML = message;
+            errorElement.appendChild(newcontent);
+            
+        }
+        function emptyEmail(value)
+        {
+            if (value == "") {
+                //show the email validation
+                window.populateValidationErrorAndDisplay("Enter a valid email");
+                return true;
+            }
+            return false;
+        }
+        function emptyPassword(value)
+        {
+            if (value == "") {
+                //show the password validation
+                window.populateValidationErrorAndDisplay("Enter a valid password");
+                return true;
+            }
+            return false;
+        }
+        function validateForm() {            
+            resetPage();
+            var enteredEmail = document.forms["myForm"]["email"].value;
+            var enteredPassword = document.forms["myForm"]["password"].value;        
+
+            var ee = window.emptyEmail(enteredEmail);
+            var pe = window.emptyPassword(enteredPassword);
+            if (enteredEmail.toLowerCase() === "login@bjss.com" && enteredPassword.toLowerCase() === "hireme123!")
+            {
+                //valid crendtials
+                document.getElementsByClassName('message success')[0].style.display = "block";
+            } else if (!ee && !pe) {
+                //not valid crentials and neither the email nor password is empty
+                document.getElementsByClassName('message error')[0].style.display = "block";
+            }
+            
+        }
+        function resetPage()
+        {
+            document.getElementsByClassName('message success')[0].style.display = "none";
+            document.getElementsByClassName('message error')[0].style.display = "none";
+            document.getElementsByClassName('validation error')[0].style.display = "none";
+            document.getElementsByClassName('validation error')[0].innerHTML = "";
+        }
+    </script>
+    <style>
+        .validation.error {
+            display: none;
+        }
+        .message.success{
+            display: none;
+        }
+        .message.error {
+            display: none;
+        }
+    </style>
+<title>Test me</title>
+</head>
+<body>
+
+<h1>Speak friend and enter</h1>
+<form name="myForm">
+  <label for="email">Email</label><br>
+  <input type="text" id="email-input" name="email" value=""><br>
+  <label for="password">Password</label><br>
+  <input type="text" id="password-input" name="password" value=""><br><br>
+</form> 
+<button id="login-button" onclick="validateForm()">Login</button>
+
+<div class="validation error">
+</div>
+
+<div class="message success">
+    Welcome to BJSS
+</div>
+
+<div class="message error">
+    Invalid credentials
+</div>
+
+</body>
+</html>

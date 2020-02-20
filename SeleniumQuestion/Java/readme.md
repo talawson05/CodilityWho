@@ -1,9 +1,9 @@
 # Prerequisites 
 
-Chrome<br>
-Java 8
-Maven
-Java SDK or an IDE with it's own inbuilt JDK
+Chrome
+<br>Java 8
+<br>Maven
+<br>Java SDK or an IDE with it's own inbuilt JDK
 
 ## Install
 Install the dependencies using maven and the [pom.xml](pom.xml).

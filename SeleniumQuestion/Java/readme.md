@@ -1,10 +1,11 @@
 # Prerequisites 
 
 Chrome<br>
-Python 3
+Java 8
+Maven
 
 ## Install
-Install the packages in the [requirements.txt](requirements.txt)
+Install the dependencies using maven and the [pom.xml](pom.xml).
 <br>Verify the install by running the default test provided, you should see a Chrome browser open and close, as it checks the page title.
 
 ## Write tests

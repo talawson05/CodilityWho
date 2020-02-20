@@ -4,9 +4,10 @@
     <script>
         function populateValidationErrorAndDisplay(message)
         {
-            var errorElement = document.getElementsByClassName('validation error')[0];
+            var errorElement = document.getElementById('messages');
             errorElement.style.display = "block";
             var newcontent = document.createElement('div');
+            newcontent.setAttribute('class', 'validation error');
             newcontent.innerHTML = message;
             errorElement.appendChild(newcontent);
             
@@ -15,7 +16,7 @@
         {
             if (value == "") {
                 //show the email validation
-                window.populateValidationErrorAndDisplay("Enter a valid email");
+                populateValidationErrorAndDisplay("Email is required");
                 return true;
             }
             return false;
@@ -24,23 +25,32 @@
         {
             if (value == "") {
                 //show the password validation
-                window.populateValidationErrorAndDisplay("Enter a valid password");
+                populateValidationErrorAndDisplay("Password is required");
                 return true;
             }
             return false;
+        }
+        function validateEmailFormat(value){   
+            var patt = /\S+@\S+\.\S+/;          
+            return patt.test(value);
         }
         function validateForm() {            
             resetPage();
             var enteredEmail = document.forms["myForm"]["email"].value;
             var enteredPassword = document.forms["myForm"]["password"].value;        
 
-            var ee = window.emptyEmail(enteredEmail);
-            var pe = window.emptyPassword(enteredPassword);
+            var ee = emptyEmail(enteredEmail);
+            var pe = emptyPassword(enteredPassword);
+            var validEmailCheck = validateEmailFormat(enteredEmail);          
+            
             if (enteredEmail.toLowerCase() === "login@bjss.com" && enteredPassword.toLowerCase() === "hireme123!")
             {
                 //valid crendtials
                 document.getElementsByClassName('message success')[0].style.display = "block";
-            } else if (!ee && !pe) {
+            } else if (!validEmailCheck && !ee) {
+                // email populated but not valid format
+                populateValidationErrorAndDisplay("Enter a valid email");
+            } else if (!ee && !pe && validEmailCheck) {
                 //not valid crentials and neither the email nor password is empty
                 document.getElementsByClassName('message error')[0].style.display = "block";
             }
@@ -50,18 +60,18 @@
         {
             document.getElementsByClassName('message success')[0].style.display = "none";
             document.getElementsByClassName('message error')[0].style.display = "none";
-            document.getElementsByClassName('validation error')[0].style.display = "none";
-            document.getElementsByClassName('validation error')[0].innerHTML = "";
+            document.getElementById('messages').style.display = "none";
+            document.getElementById('messages').innerHTML = "";
         }
     </script>
     <style>
-        .validation.error {
-            display: none;
-        }
         .message.success{
             display: none;
         }
         .message.error {
+            display: none;
+        }
+        #messages {
             display: none;
         }
     </style>
@@ -69,25 +79,21 @@
 </head>
 <body>
 
-<h1>Speak friend and enter</h1>
-<form name="myForm">
-  <label for="email">Email</label><br>
-  <input type="text" id="email-input" name="email" value=""><br>
-  <label for="password">Password</label><br>
-  <input type="text" id="password-input" name="password" value=""><br><br>
-</form> 
-<button id="login-button" onclick="validateForm()">Login</button>
+    <h1>Speak friend and enter</h1>
+    <form name="myForm">
+        <label for="email">Email</label><br>
+        <input type="text" id="email-input" name="email" value=""><br>
+        <label for="password">Password</label><br>
+        <input type="text" id="password-input" name="password" value=""><br><br>
+    </form> 
+    <button id="login-button" onclick="validateForm()">Login</button>
 
-<div class="validation error">
-</div>
-
-<div class="message success">
-    Welcome to BJSS
-</div>
-
-<div class="message error">
-    Invalid credentials
-</div>
-
+    <div class="message success">
+        Welcome to BJSS
+    </div>
+    <div class="message error">
+        You shall not pass!
+    </div>
+    <div id="messages"/>
 </body>
 </html>

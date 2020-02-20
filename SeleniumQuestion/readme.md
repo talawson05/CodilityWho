@@ -4,7 +4,7 @@ You are given a login page to an online service. Your task is to validate whethe
 
 Write a list of test cases that should check whether the given page works correctly. Write them as Pytest test methods (`test_`) in `test_class.py` class. Before each test, your class is called with the web_driver already pointing at the page being tested.
 
-You can play with the fully working reference page [here](index.html).
+You can play with the fully working reference page [here](index.html), open this file locally with your browser.
 
 You can use the following credentials to check the login process:
 
@@ -49,5 +49,3 @@ Assessment/Tools:
 -   If the page being tested is misbehaving, at least one of your tests should fail.
 -   Performance is not assessed; focus only on the correctness of the tests.
 -   Tests may take a longer time than expected due to the browser running in the background.
-
-You can use the [provided page](index.html) for the reference.

@@ -10,4 +10,4 @@ Install the packages in the .csproj, either through your IDE or using ```dotnet 
 ## Write tests
 Choose your preferred IDE or Text Editor from the ones available.
 <br>Create each test as a new test method within the provided test class
-<br>The setup method provides an instantiated webdriver object on the target page.
+<br>The setup method provides an instantiated `webdriver` object on the target page.

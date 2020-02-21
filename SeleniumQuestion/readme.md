@@ -43,9 +43,7 @@ Requirements:
 Assessment/Tools:
 -----------------
 
--   The WebDriver that is provided (`web_driver`) in the fixture is already pointing to the page being tested.
--   Make sure you start your test case names with `test_`.
-
+-   Complete the tests in the language of your choice, using the IDE/Text editor of your choice.
 -   If the page being tested is misbehaving, at least one of your tests should fail.
 -   Performance is not assessed; focus only on the correctness of the tests.
 -   Tests may take a longer time than expected due to the browser running in the background.

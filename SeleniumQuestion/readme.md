@@ -2,7 +2,7 @@
 
 You are given a login page to an online service. Your task is to validate whether the form works correctly.
 
-Write a list of test cases that should check whether the given page works correctly. Write them as Pytest test methods (`test_`) in `test_class.py` class. Before each test, your class is called with the web_driver already pointing at the page being tested.
+Write a list of test cases that should check whether the given page works correctly. 
 
 You can play with the fully working reference page [here](index.html), open this file locally with your browser.
 

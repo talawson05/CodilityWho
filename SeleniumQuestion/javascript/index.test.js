@@ -12,7 +12,7 @@ beforeEach(() => {
   return webdriver.get(file);
 });
 
-afterEach(() => {
+afterAll(() => {
   webdriver.quit();
 });
 

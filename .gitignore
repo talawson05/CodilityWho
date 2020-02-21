@@ -4,3 +4,7 @@
 *vscode
 **/target
 *.iml
+*.vs
+**/bin/Debug
+**/obj
+*.user

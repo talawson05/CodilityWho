@@ -8,3 +8,5 @@
 **/bin/Debug
 **/obj
 *.user
+**/node_modules
+**package-lock.json

@@ -1,0 +1,16 @@
+{
+  "name": "seleniumquestion-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chromedriver": "^80.0.1",
+    "jest": "^25.1.0",
+    "selenium-webdriver": "^3.6.0"
+  }
+}
